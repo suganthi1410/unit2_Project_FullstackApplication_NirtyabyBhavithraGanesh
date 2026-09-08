@@ -11,7 +11,7 @@ public class Review {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
 
     //field names,rating,comment,date are the columns of the review table
     private String name;
@@ -34,11 +34,13 @@ public class Review {
         this.level=level;
 }
 //getters and setters for the columns of the review table
-    public int getId() {
+
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

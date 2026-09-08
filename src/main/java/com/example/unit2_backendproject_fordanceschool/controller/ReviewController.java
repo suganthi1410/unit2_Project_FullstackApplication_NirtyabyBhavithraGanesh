@@ -27,14 +27,19 @@ public class ReviewController {
     public Review createReview(Review review) {
         return reviewRepository.save(review);
     }
-//Endpoint to get reviews by level
+    //Endpoint to get reviews by level
     @GetMapping("/level/{levelId}")
-    public List<Review> getReviewsByLevel(@PathVariable long levelId) {
+    public List<Review> getReviewsByLevel(@PathVariable Long levelId) {
     Level level = levelRepository.findById(levelId).orElse(null);
         if (level == null) {
             return List.of();
         }
         return level.getReviews();
+    }
+    //Endpoint to get review by id
+    @GetMapping("/{Id}")
+    public Review getReviewById(@PathVariable Long id) {
+    return reviewRepository.findById(id).orElse(null);
     }
     }
 
