@@ -41,6 +41,14 @@ public class ReviewController {
     public Review getReviewById(@PathVariable Long id) {
     return reviewRepository.findById(id).orElse(null);
     }
+
+    //Endpoint to delete review by id
+    @DeleteMapping("/{Id}")
+    public void deleteReviewById(@PathVariable Long id) {
+    reviewRepository.deleteById(id);
+    }
+
+
     }
 
 
