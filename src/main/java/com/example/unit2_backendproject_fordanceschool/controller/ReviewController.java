@@ -5,6 +5,7 @@ import com.example.unit2_backendproject_fordanceschool.model.Level;
 import com.example.unit2_backendproject_fordanceschool.model.Review;
 import com.example.unit2_backendproject_fordanceschool.repository.LevelRepository;
 import com.example.unit2_backendproject_fordanceschool.repository.ReviewRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class ReviewController {
 }
     //Endpoint to create/post a review
 @PostMapping("/post")
-    public ResponseEntity<Review> createReview(@Valid @RequestBody  ReviewDto dto) {
+    public ResponseEntity<Review> createReview(@Valid @RequestBody ReviewDto dto) {
     Level level = levelRepository.findById(dto.getLevelId()).orElse(null);
     if (level == null) {
         throw new RuntimeException("Level not found with the id:" + dto.getLevelId());
