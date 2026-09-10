@@ -1,5 +1,6 @@
 package com.example.unit2_backendproject_fordanceschool.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -11,7 +12,7 @@ public class Review {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     //field names,rating,comment,date are the columns of the review table
     private String name;
@@ -22,11 +23,13 @@ public class Review {
 //foreign key to the level table
     @ManyToOne
     @JoinColumn(name = "level_id")
+    @JsonBackReference
     private Level level;
+
     public Review() {}
 
 //constructor for the review table
-    public Review(int id, String name, int rating, String comment, LocalDate date, Level level) {
+    public Review(String name, int rating, String comment, LocalDate date, Level level) {
         this.name=name;
         this.rating=rating;
         this.comment=comment;
@@ -36,11 +39,11 @@ public class Review {
 //getters and setters for the columns of the review table
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
