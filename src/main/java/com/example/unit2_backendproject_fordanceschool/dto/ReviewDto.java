@@ -1,6 +1,8 @@
 package com.example.unit2_backendproject_fordanceschool.dto;
 
-import org.antlr.v4.runtime.misc.NotNull;
+
+
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
@@ -8,13 +10,13 @@ public class ReviewDto {
     @NotNull
     private String name;
     @NotNull
-    private int rating;
+    private Integer rating;
     @NotNull
     private String comment;
     @NotNull
     private LocalDate date;
     @NotNull
-    private int levelId;
+    private Integer levelId;
 
     public String getName() {
         return name;
@@ -24,12 +26,18 @@ public class ReviewDto {
         this.name = name;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
+    }
+    public Integer getLevelId() {
+        return levelId;
+    }
+    public void setLevelId(Integer levelId) {
+        this.levelId = levelId;
     }
 
     public String getComment() {
@@ -48,11 +56,5 @@ public class ReviewDto {
         this.date = date;
     }
 
-    public int getLevelId() {
-        return levelId;
-    }
 
-    public void setLevelId(int levelId) {
-        this.levelId = levelId;
-    }
 }

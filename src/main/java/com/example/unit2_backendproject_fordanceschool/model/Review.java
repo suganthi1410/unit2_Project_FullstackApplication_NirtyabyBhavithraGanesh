@@ -12,11 +12,11 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     //field names,rating,comment,date are the columns of the review table
     private String name;
-    private int rating;
+    private Integer rating;
     private String comment;
     private LocalDate date;
 
@@ -29,7 +29,7 @@ public class Review {
     public Review() {}
 
 //constructor for the review table
-    public Review(String name, int rating, String comment, LocalDate date, Level level) {
+    public Review(String name, Integer rating, String comment, LocalDate date, Level level) {
         this.name=name;
         this.rating=rating;
         this.comment=comment;
@@ -39,11 +39,11 @@ public class Review {
 //getters and setters for the columns of the review table
 
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,11 +55,11 @@ public class Review {
         this.name = name;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(Integer rating) {
         this.rating = rating;
     }
 
