@@ -19,6 +19,8 @@ public class Review {
     private Integer rating;
     private String comment;
     private LocalDate date;
+    //stores which user writes the review
+    private String username;
 
 //foreign key to the level table
     @ManyToOne
@@ -29,12 +31,13 @@ public class Review {
     public Review() {}
 
 //constructor for the review table
-    public Review(String name, Integer rating, String comment, LocalDate date, Level level) {
+    public Review(String name, Integer rating, String comment, LocalDate date, Level level,String username) {
         this.name=name;
         this.rating=rating;
         this.comment=comment;
         this.date=date;
         this.level=level;
+        this.username = username;
 }
 //getters and setters for the columns of the review table
 
@@ -85,5 +88,13 @@ public class Review {
 
     public void setLevel(Level level) {
         this.level = level;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

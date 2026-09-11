@@ -38,6 +38,7 @@ public class ReviewController {
         }
         Review review = new Review();
         review.setName(dto.getName());
+        review.setUsername(dto.getUsername());
         review.setComment(dto.getComment());
         review.setDate(dto.getDate());
         review.setRating(dto.getRating());
@@ -71,6 +72,7 @@ public class ReviewController {
 
         reviewRepository.deleteById(id);
     }
+
     //End point to update/Patch by id
     @PatchMapping(value = "/update/{id}")
     public Review patchReviewById(@PathVariable int id, @RequestBody Review updatedFields) {
