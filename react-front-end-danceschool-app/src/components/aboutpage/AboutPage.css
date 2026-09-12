@@ -1,0 +1,91 @@
+.about-page {
+  width: 100%;
+  color: rgba(241, 181, 30, 0.806);
+}
+
+.banner-salangai {
+  position: relative;
+  width: 100%;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-about-text {
+  position: absolute;
+  width: 98%;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgb(241, 181, 30);
+  background-color: rgba(255, 255, 255, 0.114);
+  border-radius: 6px;
+}
+
+.banner-about-text h4 {
+  font-size: 20px;
+  font-family: cursive;
+  display: inline-block;
+}
+
+.about-content-box {
+  width: 90%;
+  margin: 40px auto;
+  margin-left: 40px;
+  background-color: rgba(255, 255, 255, 0.087);
+  border-radius: 10px;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.829);
+}
+.about-content-box p {
+  font-size: 18px;
+  text-align: justify;
+  font-style: italic;
+}
+
+.about-heading {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: rgba(241, 181, 30, 0.806);
+}
+
+.about-title {
+  font-size: 24px;
+  margin-left: 40px;
+  color: rgba(241, 181, 30, 0.806);
+}
+
+.about-layout {
+  display: flex;
+  gap: 15px;
+  width: 90%;
+  margin: 20px auto;
+  margin-left: 40px;
+}
+.about-image-box {
+  flex: 1;
+}
+
+.dancer-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+}
+.about-content-box1 {
+  flex: 2;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.087);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.829);
+}
+
+.about-content-box1 p {
+  font-size: 18px;
+  font-style: italic;
+  text-align: justify;
+}

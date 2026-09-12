@@ -1,0 +1,196 @@
+.contact-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: Georgia, serif;
+  color: white;
+}
+
+.title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: rgb(241, 181, 30);
+  margin: 0 auto 30px auto;
+  font-size: 22px;
+}
+
+.contact-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.teacher-info-leftsection {
+  width: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-left: 1px solid rgb(241, 181, 30);
+  border-radius: 10px;
+}
+
+.teacher-info-leftsection h4 {
+  color: rgb(241, 181, 30);
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.teacher-info-leftsection p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.map-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgb(241, 181, 30);
+}
+
+.studio-location-box {
+  margin-top: -45px;
+  padding: 10px;
+  color: salmon;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.studio-location-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: rgb(241, 181, 30);
+}
+
+.studio-location-list {
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.studio-location-list li {
+  margin-bottom: 0px;
+}
+
+.form-rightsection {
+  width: 50%;
+}
+
+.contact-form {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 1px solid rgb(241, 181, 30);
+}
+
+.contact-form h3 {
+  color: rgb(241, 181, 30);
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  font-size: 18px;
+  color: rgb(241, 181, 30);
+}
+
+.required-star {
+  color: salmon;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 75%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid rgb(241, 181, 30);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.submit-button {
+  margin-top: 20px;
+  width: 40%;
+  padding: 12px;
+  background: rgb(241, 181, 30);
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-button:hover {
+  background: rgb(243, 144, 5);
+}
+
+.error-msg {
+  color: #ffffffd3;
+  background: rgba(234, 19, 19, 0.507);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.success-msg {
+  color: #e6eee6;
+  background: rgba(58, 239, 58, 0.541);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    flex-direction: column;
+  }
+
+  .teacher-info-leftsection,
+  .form-rightsection {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .contact-page {
+    padding: 20px;
+  }
+
+  .contact-page h1 {
+    font-size: 28px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .teacher-info-leftsection,
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 15px;
+  }
+
+  .submit-button {
+    font-size: 16px;
+    padding: 10px;
+  }
+}

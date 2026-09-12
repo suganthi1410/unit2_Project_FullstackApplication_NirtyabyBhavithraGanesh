@@ -1,0 +1,73 @@
+const timings = [
+  {
+    type: "Kids",
+    level: "Beginner",
+    day: "Monday",
+    time: "5.00 PM-6.00 PM",
+    fee: "$60/month",
+  },
+  {
+    type: "Kids",
+    level: "Beginner",
+    day: "Wednesday",
+    time: "5.00 PM-6.00 PM",
+    fee: "$60/month",
+  },
+  {
+    type: "Kids",
+    level: "Intermediate",
+    day: "Tuesday",
+    time: "6.00 PM-7.00 PM",
+    fee: "$75/month",
+  },
+  {
+    type: "Kids",
+    level: "Intermediate",
+    day: "Thursday",
+    time: "6.00 PM-7.00 PM",
+    fee: "$75/month",
+  },
+  {
+    type: "Kids",
+    level: "Advanced",
+    day: "Saturday",
+    time: "10.00 AM-12.00 PM",
+    fee: "$90/month",
+  },
+  {
+    type: "Adults",
+    level: "Beginner",
+    day: "Monday",
+    time: "6.00 PM-7.00 PM",
+    fee: "$70/month",
+  },
+  {
+    type: "Adults",
+    level: "Beginner",
+    day: "Wednesday",
+    time: "6.00 PM-7.00 PM",
+    fee: "$70/month",
+  },
+  {
+    type: "Adults",
+    level: "Intermediate",
+    day: "Tuesday",
+    time: "7.00 PM-8.00 PM",
+    fee: "$85/month",
+  },
+  {
+    type: "Adults",
+    level: "Intermediate",
+    day: "Thursday",
+    time: "7.00 PM-8.00 PM",
+    fee: "$85/month",
+  },
+  {
+    type: "Adults",
+    level: "Advanced",
+    day: "Saturday",
+    time: "8.00 PM-10.00 PM",
+    fee: "$70/month",
+  },
+];
+export default timings;
