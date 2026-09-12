@@ -16,12 +16,12 @@ public class LevelController {
        //Endpoint to get all levels
         @GetMapping
         public List<Level> getAllLevels() {
-            return levelRepository.findAll();
+        return levelRepository.findAll();
         }
        //Endpoint to create a level
         @PostMapping
         public Level createLevel(@RequestBody Level level) {
-            return levelRepository.save(level);
+        return levelRepository.save(level);
         }
 
 }

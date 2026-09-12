@@ -45,7 +45,6 @@ public class ReviewController {
         review.setLevel(level);
 
         Review savedReview = reviewRepository.save(review);
-
         return new ResponseEntity<>(savedReview, HttpStatus.CREATED);
     }
 

@@ -13,7 +13,8 @@ public class UserService {
 
     public boolean login(String username, String password) {
         return userRepository.findByUsername(username)
-                .map(user -> user.getPassword().equals(password))
+                .map(user ->
+                        user.getPassword().equals(password))
                 .orElse(false);
     }
 }
