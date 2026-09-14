@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import ReviewList from "./ReviewList";
 import Modal from "../modal/Modal";
+import ReviewForm from "./ReviewForm";
+
 
 function ReviewPage() {
-    /*
-    Tested with some reviews to display on the reviewpage
-    const reviews = [
+    
+    // Tested with some reviews to display on the reviewpage
+    const mockReviews = [
     {
       id: 1,
       username: "Ausha",
@@ -31,11 +33,11 @@ function ReviewPage() {
       date: "2026-05-16"
     }
   ];
-  */
- const [reviews, setReviews] = useState([]);
+  
+ const [reviews, setReviews] = useState(mockReviews);
  const [showModal, setShowModal] = useState(false);
  const [editingReview, setEditingReview] = useState(null);
-
+/*
  useEffect(() => {
     fetch("http://localhost:8080/reviews")
       .then((res) => res.json())
@@ -43,7 +45,7 @@ function ReviewPage() {
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
 
-  
+  */
   return (
     <main>
       <h2>Student Reviews</h2>      
@@ -58,7 +60,11 @@ function ReviewPage() {
      
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          {/* ReviewForm will be added here next */}
+          <ReviewForm
+          editingReview={editingReview}
+          onClose={() => setShowModal(false)}
+          onSave={() => {}}
+          />
         </Modal>
       )}
       <ReviewList reviews={reviews} />
