@@ -18,6 +18,7 @@ function Header() {
                 <Link to="/class">Class</Link>
                 <Link to="/gallery">Gallery</Link>
                 <Link to="/contact">Contact</Link>
+                <Link to="/review">Reviews</Link>
             </nav>
 
         </header>
