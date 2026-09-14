@@ -44,8 +44,11 @@ function ReviewPage() {
       .then((data) => setReviews(data))
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
-
   */
+  function handleSaveReview(savedReview) {
+    setReviews([...reviews, savedReview]);
+  }
+
   return (
     <main>
       <h2>Student Reviews</h2>      
@@ -63,7 +66,7 @@ function ReviewPage() {
           <ReviewForm
           editingReview={editingReview}
           onClose={() => setShowModal(false)}
-          onSave={() => {}}
+          onSave={handleSaveReview} 
           />
         </Modal>
       )}

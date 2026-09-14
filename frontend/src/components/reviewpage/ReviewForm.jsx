@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function ReviewForm({ onClose, onSave, editingReview }) {
     const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
     const [levelName, setLevelName] = useState("");
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
@@ -9,12 +10,20 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     const [date] = useState(today);
     const [successMsg, setSuccessMsg] = useState("");
 
+    const levelMap = {
+    Beginner: 1,
+    Intermediate: 2,
+    Advanced: 3
+    };
+
+
     function handleSubmit(e) {
     e.preventDefault();
 
     const newReview = {
       username,
-      levelName,
+      name,
+      level_id: levelMap[levelName],
       rating,
       comment,
       date
@@ -35,15 +44,25 @@ function ReviewForm({ onClose, onSave, editingReview }) {
       {successMsg}
     </div>
   )} 
-      {/* Input field for Name */}
-      <label>Name</label>
+      {/* Input field for UserName */}
+      <label>UserName</label>
       <input
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
       /> 
-      {/* Level Dropdown */}
+      {/* for Name */}
+    <label htmlFor="name">Name</label>
+        <input
+        id="name"
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+/>          
+      
+      {/* Level Dropdown */}   
       <label>Level</label>
       <select
         value={levelName}
