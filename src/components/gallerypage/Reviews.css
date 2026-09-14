@@ -1,0 +1,52 @@
+.review-section {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+.review-heading {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.review-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.review-input input {
+  width: 120px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.add-button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background: #eee;
+}
+
+.review-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.review-item {
+  width: 230px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-text {
+  font-style: italic;
+}
+
+.delete-button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #eee;
+}
