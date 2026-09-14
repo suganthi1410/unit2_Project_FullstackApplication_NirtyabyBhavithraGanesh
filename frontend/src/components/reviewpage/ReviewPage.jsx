@@ -1,5 +1,9 @@
+import { useEffect, useState } from "react";
 import ReviewList from "./ReviewList";
+
 function ReviewPage() {
+    /*
+    Tested with some reviews to display on the reviewpage
     const reviews = [
     {
       id: 1,
@@ -26,6 +30,14 @@ function ReviewPage() {
       date: "2026-05-16"
     }
   ];
+  */
+ const [reviews, setReviews] = useState([]);
+ useEffect(() => {
+    fetch("http://localhost:8080/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data))
+      .catch((err) => console.error("Error fetching reviews:", err));
+  }, []);
   return (
     <main>
       <h2>Student Reviews</h2>
