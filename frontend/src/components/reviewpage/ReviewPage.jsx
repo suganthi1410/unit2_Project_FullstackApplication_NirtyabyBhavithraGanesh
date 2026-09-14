@@ -6,7 +6,7 @@ import ReviewForm from "./ReviewForm";
 
 function ReviewPage() {
     
-    // Tested with some reviews to display on the reviewpage
+   /* Tested with some reviews to display on the reviewpage
     const mockReviews = [
     {
       id: 1,
@@ -32,19 +32,20 @@ function ReviewPage() {
       comment: "Loved the choreography sessions!",
       date: "2026-05-16"
     }
-  ];
+  ]; 
+  */
   
- const [reviews, setReviews] = useState(mockReviews);
+ const [reviews, setReviews] = useState([]);
  const [showModal, setShowModal] = useState(false);
  const [editingReview, setEditingReview] = useState(null);
-/*
+
  useEffect(() => {
     fetch("http://localhost:8080/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
-  */
+  
   function handleSaveReview(savedReview) {
     setReviews([...reviews, savedReview]);
   }
