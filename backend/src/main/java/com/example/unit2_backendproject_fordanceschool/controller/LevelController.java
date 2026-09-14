@@ -5,7 +5,7 @@ import com.example.unit2_backendproject_fordanceschool.repository.LevelRepositor
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:*")
 @RestController
 @RequestMapping("/levels")
 public class LevelController {
