@@ -4,6 +4,7 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     const [username, setUsername] = useState("");
     const [levelName, setLevelName] = useState("");
     const [rating, setRating] = useState(0);
+    const [comment, setComment] = useState("");
   return (
     <form className="review-form">
       <h3>{editingReview ? "Edit Review" : "Add Review"}</h3>  
@@ -41,6 +42,13 @@ function ReviewForm({ onClose, onSave, editingReview }) {
         <option value={4}>4 - Very Good</option>
         <option value={5}>5 - Excellent</option>
       </select>
+      {/*Input field for comment*/}
+      <label>Comment</label>
+      <textarea
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+        required
+      />
     </form>
   );
 }
