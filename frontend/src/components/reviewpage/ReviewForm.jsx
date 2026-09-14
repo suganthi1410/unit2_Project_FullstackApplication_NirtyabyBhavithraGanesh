@@ -5,6 +5,8 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     const [levelName, setLevelName] = useState("");
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState("");
+    const today = new Date().toISOString().split("T")[0];
+    const [date] = useState(today);
   return (
     <form className="review-form">
       <h3>{editingReview ? "Edit Review" : "Add Review"}</h3>  
@@ -49,6 +51,7 @@ function ReviewForm({ onClose, onSave, editingReview }) {
         onChange={(e) => setComment(e.target.value)}
         required
       />
+      <input type="hidden" value={date} />
     </form>
   );
 }
