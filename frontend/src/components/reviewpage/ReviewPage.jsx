@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ReviewList from "./ReviewList";
+import Modal from "../modal/Modal";
 
 function ReviewPage() {
     /*
@@ -32,15 +33,34 @@ function ReviewPage() {
   ];
   */
  const [reviews, setReviews] = useState([]);
+ const [showModal, setShowModal] = useState(false);
+ const [editingReview, setEditingReview] = useState(null);
+
  useEffect(() => {
     fetch("http://localhost:8080/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
+
+  
   return (
     <main>
-      <h2>Student Reviews</h2>
+      <h2>Student Reviews</h2>      
+      <button
+        onClick={() => {
+          setEditingReview(null);   
+          setShowModal(true);       
+        }}
+      >
+        Write a Review
+      </button>
+     
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          {/* ReviewForm will be added here next */}
+        </Modal>
+      )}
       <ReviewList reviews={reviews} />
     </main>
   );
