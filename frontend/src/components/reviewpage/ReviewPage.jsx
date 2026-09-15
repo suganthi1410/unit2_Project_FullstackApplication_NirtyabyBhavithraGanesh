@@ -38,6 +38,7 @@ function ReviewPage() {
  const [reviews, setReviews] = useState([]);
  const [showModal, setShowModal] = useState(false);
  const [editingReview, setEditingReview] = useState(null);
+
 //Getting review from backend
  useEffect(() => {
     fetch("http://localhost:8080/reviews")
@@ -45,6 +46,7 @@ function ReviewPage() {
       .then((data) => setReviews(data))
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
+
   //Posting review to backend
   function handleSaveReview(newReview) {
   fetch("http://localhost:8080/reviews/post", {
@@ -56,6 +58,17 @@ function ReviewPage() {
       .then((savedReview) => {
         setReviews([...reviews, savedReview]); 
       });
+  }
+
+  //Delete review
+  function handleDeleteReview(id) {
+    fetch(`http://localhost:8080/reviews/${id}`, {
+      method: "DELETE"
+    })
+      .then(() => {
+        setReviews(reviews.filter((r) => r.id !== id));
+      })
+      .catch((err) => console.error("DELETE error:", err));
   }
 
   return (
