@@ -19,11 +19,13 @@ function LoginPage(){
         username,
         password
       });
+      console.log("Axios response:", response);
 
       if (response.status === 200) {
         onLogin(username);   // send username to App.jsx
       }
     } catch (err) {
+        console.log("Axios error:", err);
       setError("Invalid username or password");
     }
   }
