@@ -1,3 +1,4 @@
+
 function Modal({ onClose, className = "", children }) {
   return (
     <div className="modal-overlay" onClick={onClose}>

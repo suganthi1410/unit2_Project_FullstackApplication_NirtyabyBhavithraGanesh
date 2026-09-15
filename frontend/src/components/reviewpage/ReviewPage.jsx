@@ -14,7 +14,13 @@ function ReviewPage({ loggedInUser }) {
  useEffect(() => {
     fetch("http://localhost:8080/reviews")
       .then((res) => res.json())
-      .then((data) => setReviews(data))
+      .then((data) => {
+        if (loggedInUser) {        
+        setReviews(data.filter(r => r.username === loggedInUser));
+      } else {        
+        setReviews(data);
+      }
+    })
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
 
@@ -90,6 +96,7 @@ function ReviewPage({ loggedInUser }) {
       )}
       <ReviewList
     reviews={reviews}
+    loggedInUser={loggedInUser}
     onEdit={(review) => {
     setEditingReview(review);
     setShowModal(true);

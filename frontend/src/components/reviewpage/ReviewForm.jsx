@@ -29,7 +29,7 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     if (editingReview) {
       setUsername(editingReview.username);
       setName(editingReview.name);
-      setLevelName(getLevelName(editingReview.levelId));
+      setLevelName(editingReview.level?.name || "");
       setRating(editingReview.rating);
       setComment(editingReview.comment);
     }

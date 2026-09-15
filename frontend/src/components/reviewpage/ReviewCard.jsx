@@ -1,4 +1,6 @@
-function ReviewCard({ review , onEdit, onDelete }) {
+function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
+    const isOwner = review.username === loggedInUser;
+
     //converting backend levelId to level name
       const levelNames = {
     1: "Beginner",
@@ -15,9 +17,14 @@ function ReviewCard({ review , onEdit, onDelete }) {
       <p>Rating: {review.rating}</p>
       <p>{review.comment}</p>
       <p>Date: {review.date}</p>
+
+      {isOwner && (
+        <>
       {/* button for edit delete */}
       <button onClick={() => onEdit(review)}>Edit</button>
       <button onClick={() => onDelete(review.id)}>Delete</button>
+      </>
+      )}
     </div>
   );
 }
