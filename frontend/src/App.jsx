@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
@@ -12,11 +13,27 @@ import Contact from "./components/pages/Contact.jsx";
 import ClassSchedule from "./components/classschedule/ClassSchedule.jsx";
 import ClassTimings from "./components/classschedule/ClassTimings";
 import ReviewPage from "./components/reviewpage/ReviewPage.jsx";  
-import LoginPage from "./components/loginpage/Login.jsx";
+import LoginModal from "./components/modal/LoginModal";
+
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header 
+      onOpenLogin={() => setShowLoginModal(true)}
+        loggedInUser={loggedInUser}
+        />
+          {showLoginModal && (
+        <LoginModal
+          onClose={() => setShowLoginModal(false)}
+          onLogin={(username) => {
+            setLoggedInUser(username);
+            setShowLoginModal(false);
+          }}
+        />
+      )}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,10 +43,10 @@ function App() {
         <Route path="/schedule/timings" element={<ClassTimings />} />
 
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contact" element={<Contact />} />
-
-        <Route path="/review" element={<ReviewPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/contact" element={<Contact />} />       
+        <Route path="/review" element={<ReviewPage loggedInUser={loggedInUser} />} />
+        
+        
       </Routes>
       <Footer />
     </BrowserRouter>

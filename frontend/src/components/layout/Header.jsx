@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.jpeg';
 //function created for header that displays Logo,
 //page title and links to other pages 
 
-function Header() {
+function Header({ onOpenLogin, loggedInUser }) {
     return (
         <header className="header">
             <div className="logo-title">
@@ -19,7 +19,19 @@ function Header() {
                 <Link to="/gallery">Gallery</Link>
                 <Link to="/contact">Contact</Link>
                 <Link to="/review">Reviews</Link>
-                <Link to="/login">Login</Link>
+                 {!loggedInUser && (
+                <button className="login-btn" onClick={onOpenLogin}>
+                        Login
+                    </button>
+                )}
+                {loggedInUser && (
+                    <>
+                        <span className="welcome">Welcome, {loggedInUser}</span>
+                        <button className="logout-btn" onClick={() => window.location.reload()}>
+                            Logout
+                        </button>
+                    </>
+                )}
             </nav>
 
         </header>
