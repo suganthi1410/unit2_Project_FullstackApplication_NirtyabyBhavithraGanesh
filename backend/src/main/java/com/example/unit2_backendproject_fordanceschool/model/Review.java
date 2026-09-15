@@ -97,4 +97,15 @@ public class Review {
     public void setUsername(String username) {
         this.username = username;
     }
+    public Integer getLevelId() {
+        return level != null ? level.getId() : null;
+    }
+
+    public void setLevelId(Integer levelId) {
+        if (levelId != null) {
+            Level lvl = new Level();
+            lvl.setId(levelId);
+            this.level = lvl;
+        }
+    }
 }

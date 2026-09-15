@@ -90,10 +90,14 @@ public class ReviewController {
         if (updatedFields.getDate() != null) {
             existingReview.setDate(updatedFields.getDate());
         }
-        if (updatedFields.getRating() != null) {
+        if (updatedFields.getRating() != null){
             existingReview.setRating(updatedFields.getRating());
         }
-
+        if (updatedFields.getLevelId() != null) {
+            Level level = levelRepository.findById(updatedFields.getLevelId())
+                    .orElseThrow(() -> new RuntimeException("Level not found"));
+            existingReview.setLevel(level);
+        }
         return reviewRepository.save(existingReview);
     }
 }
