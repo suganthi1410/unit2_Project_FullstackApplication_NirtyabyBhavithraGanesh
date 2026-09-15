@@ -12,6 +12,7 @@ import Contact from "./components/pages/Contact.jsx";
 import ClassSchedule from "./components/classschedule/ClassSchedule.jsx";
 import ClassTimings from "./components/classschedule/ClassTimings";
 import ReviewPage from "./components/reviewpage/ReviewPage.jsx";  
+import LoginPage from "./components/loginpage/Login.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +27,9 @@ function App() {
 
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+
         <Route path="/review" element={<ReviewPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
