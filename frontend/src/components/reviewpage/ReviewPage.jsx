@@ -20,6 +20,21 @@ function ReviewPage() {
 
   //Posting review to backend
   function handleSaveReview(newReview) {
+    // If updating or editing PATCH
+    if (editingReview) {
+      fetch(`http://localhost:8080/reviews/update/${editingReview.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newReview)   // ⭐ includes levelId
+      })
+        .then((res) => res.json())
+        .then((updatedReview) => {
+          setReviews(
+            reviews.map((r) => (r.id === updatedReview.id ? updatedReview : r))
+          );
+        });
+    } else {
+     //Create-POST   
   fetch("http://localhost:8080/reviews/post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,7 +45,7 @@ function ReviewPage() {
         setReviews([...reviews, savedReview]); 
       });
   }
-
+  }
   //Delete review
   function handleDeleteReview(id) {
     fetch(`http://localhost:8080/reviews/${id}`, {
