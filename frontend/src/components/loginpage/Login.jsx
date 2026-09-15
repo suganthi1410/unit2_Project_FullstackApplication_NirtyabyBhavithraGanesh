@@ -1,19 +1,33 @@
 import { useState } from "react";
+import axios from "axios";
+
 function LoginPage(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    
+
     //error handling for empty username password
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
     e.preventDefault();
 
     if (!username || !password) {
       setError("Username and password are required")
-      return;    }
+      return;    
+    }
+    try {
+      const response = await axios.post("http://localhost:8080/login", {
+        username,
+        password
+      });
 
-    console.log("Login clicked:", username, password);
+      if (response.status === 200) {
+        onLogin(username);   // send username to App.jsx
+      }
+    } catch (err) {
+      setError("Invalid username or password");
+    }
   }
+   
     return(
     <div>
         <h2>Login</h2>
