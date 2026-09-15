@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 function ReviewForm({ onClose, onSave, editingReview }) {
     const [username, setUsername] = useState("");
@@ -10,27 +10,48 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     const [date] = useState(today);
     const [successMsg, setSuccessMsg] = useState("");
 
+    // converting levelId to levelName
+     function getLevelName(levelId) {
+    if (levelId === 1) return "Beginner";
+    if (levelId === 2) return "Intermediate";
+    return "Advanced";
+    }
+
+   // Mapping levelname with id for backend level id values
     const levelMap = {
     Beginner: 1,
     Intermediate: 2,
     Advanced: 3
     };
 
+    //prefillied form when do editing
+      useEffect(() => {
+    if (editingReview) {
+      setUsername(editingReview.username);
+      setName(editingReview.name);
+      setLevelName(getLevelName(editingReview.levelId));
+      setRating(editingReview.rating);
+      setComment(editingReview.comment);
+    }
+  }, [editingReview]);     
 
     function handleSubmit(e) {
     e.preventDefault();
 
     const newReview = {
+      id: editingReview ? editingReview.id : undefined, 
       username,
       name,
-      level_id: levelMap[levelName],
+      levelId: levelMap[levelName], 
       rating,
       comment,
       date
     };
 
+    onSave(newReview);
+
     onSave(newReview); 
-    setSuccessMsg("Review submitted successfully!"); 
+    setSuccessMsg(editingReview ? "Review updated!" : "Review submitted!"); 
     setTimeout(() => {
       setSuccessMsg("");
       onClose();   

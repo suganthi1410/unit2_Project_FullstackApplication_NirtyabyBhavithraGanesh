@@ -4,50 +4,57 @@ import Modal from "../modal/Modal";
 import ReviewForm from "./ReviewForm";
 
 
-function ReviewPage() {
-    
-   /* Tested with some reviews to display on the reviewpage
-    const mockReviews = [
-    {
-      id: 1,
-      username: "Ausha",
-      levelName: "Beginner",
-      rating: 5,
-      comment: "Amazing class! Very patient teaching.",
-      date: "2024-02-10"
-    },
-    {
-      id: 2,
-      username: "shalini",
-      levelName: "Intermediate",
-      rating: 4,
-      comment: "Structured lessons and fun environment.",
-      date: "2025-09-11"
-    },
-    {
-      id: 3,
-      username: "Ashwini",
-      levelName: "Advanced",
-      rating: 5,
-      comment: "Loved the choreography sessions!",
-      date: "2026-05-16"
-    }
-  ]; 
-  */
+function ReviewPage() {  
   
  const [reviews, setReviews] = useState([]);
  const [showModal, setShowModal] = useState(false);
  const [editingReview, setEditingReview] = useState(null);
 
+//Getting review from backend
  useEffect(() => {
     fetch("http://localhost:8080/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
-  
-  function handleSaveReview(savedReview) {
-    setReviews([...reviews, savedReview]);
+
+  //Posting review to backend
+  function handleSaveReview(newReview) {
+    // If updating or editing PATCH
+    if (editingReview) {
+      fetch(`http://localhost:8080/reviews/update/${editingReview.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newReview)   // ⭐ includes levelId
+      })
+        .then((res) => res.json())
+        .then((updatedReview) => {
+          setReviews(
+            reviews.map((r) => (r.id === updatedReview.id ? updatedReview : r))
+          );
+        });
+    } else {
+     //Create-POST   
+  fetch("http://localhost:8080/reviews/post", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newReview)
+    })
+      .then((res) => res.json())
+      .then((savedReview) => {
+        setReviews([...reviews, savedReview]); 
+      });
+  }
+  }
+  //Delete review
+  function handleDeleteReview(id) {
+    fetch(`http://localhost:8080/reviews/${id}`, {
+      method: "DELETE"
+    })
+      .then(() => {
+        setReviews(reviews.filter((r) => r.id !== id));
+      })
+      .catch((err) => console.error("DELETE error:", err));
   }
 
   return (
@@ -71,7 +78,14 @@ function ReviewPage() {
           />
         </Modal>
       )}
-      <ReviewList reviews={reviews} />
+      <ReviewList
+    reviews={reviews}
+    onEdit={(review) => {
+    setEditingReview(review);
+    setShowModal(true);
+    }}
+    onDelete={handleDeleteReview}
+    />
     </main>
   );
 }
