@@ -4,36 +4,7 @@ import Modal from "../modal/Modal";
 import ReviewForm from "./ReviewForm";
 
 
-function ReviewPage() {
-    
-   /* Tested with some reviews to display on the reviewpage
-    const mockReviews = [
-    {
-      id: 1,
-      username: "Ausha",
-      levelName: "Beginner",
-      rating: 5,
-      comment: "Amazing class! Very patient teaching.",
-      date: "2024-02-10"
-    },
-    {
-      id: 2,
-      username: "shalini",
-      levelName: "Intermediate",
-      rating: 4,
-      comment: "Structured lessons and fun environment.",
-      date: "2025-09-11"
-    },
-    {
-      id: 3,
-      username: "Ashwini",
-      levelName: "Advanced",
-      rating: 5,
-      comment: "Loved the choreography sessions!",
-      date: "2026-05-16"
-    }
-  ]; 
-  */
+function ReviewPage() {  
   
  const [reviews, setReviews] = useState([]);
  const [showModal, setShowModal] = useState(false);
