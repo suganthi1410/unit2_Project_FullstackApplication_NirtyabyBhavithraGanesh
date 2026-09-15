@@ -47,7 +47,7 @@ function ReviewPage() {
   }, []);
   //Posting review to backend
   function handleSaveReview(newReview) {
-  fetch("http://localhost:8080/reviews", {
+  fetch("http://localhost:8080/reviews/post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newReview)

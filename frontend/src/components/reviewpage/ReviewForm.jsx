@@ -10,7 +10,7 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     const [date] = useState(today);
     const [successMsg, setSuccessMsg] = useState("");
 
-   // Mapping levelname with id for backend llevel id values
+   // Mapping levelname with id for backend level id values
     const levelMap = {
     Beginner: 1,
     Intermediate: 2,
@@ -24,7 +24,7 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     const newReview = {
       username,
       name,
-      level_id: levelMap[levelName],
+      levelId: levelMap[levelName],
       rating,
       comment,
       date
