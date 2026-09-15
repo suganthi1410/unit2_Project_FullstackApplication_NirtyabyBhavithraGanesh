@@ -4,7 +4,7 @@ import Modal from "../modal/Modal";
 import ReviewForm from "./ReviewForm";
 
 
-function ReviewPage() {  
+function ReviewPage({ loggedInUser }) {  
   
  const [reviews, setReviews] = useState([]);
  const [showModal, setShowModal] = useState(false);
@@ -18,9 +18,10 @@ function ReviewPage() {
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
 
-  //Posting review to backend
+  
   function handleSaveReview(newReview) {
     // If updating or editing PATCH
+
     if (editingReview) {
       fetch(`http://localhost:8080/reviews/update/${editingReview.id}`, {
         method: "PATCH",
@@ -34,7 +35,9 @@ function ReviewPage() {
           );
         });
     } else {
+
      //Create-POST   
+
   fetch("http://localhost:8080/reviews/post", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -59,7 +62,8 @@ function ReviewPage() {
 
   return (
     <main>
-      <h2>Student Reviews</h2>      
+      <h2>Student Reviews</h2>
+      {loggedInUser && (      
       <button
         onClick={() => {
           setEditingReview(null);   
@@ -68,6 +72,12 @@ function ReviewPage() {
       >
         Write a Review
       </button>
+      )}
+      {!loggedInUser && (
+     <p style={{ color: "gray" }}>
+     Please login to write a review.
+     </p>
+)}
      
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

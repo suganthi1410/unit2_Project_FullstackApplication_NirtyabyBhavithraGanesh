@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
@@ -18,11 +18,12 @@ import LoginModal from "./components/modal/LoginModal";
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [showLoginModal, setShowLoginModal] = useState(false);
-
+  
   return (
     <BrowserRouter>
       <Header 
       onOpenLogin={() => setShowLoginModal(true)}
+      onNavigate={() => setShowLoginModal(false)}
         loggedInUser={loggedInUser}
         />
           {showLoginModal && (
