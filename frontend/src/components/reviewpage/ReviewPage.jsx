@@ -92,7 +92,14 @@ function ReviewPage() {
           />
         </Modal>
       )}
-      <ReviewList reviews={reviews} />
+      <ReviewList
+    reviews={reviews}
+    onEdit={(review) => {
+    setEditingReview(review);
+    setShowModal(true);
+    }}
+    onDelete={handleDeleteReview}
+    />
     </main>
   );
 }

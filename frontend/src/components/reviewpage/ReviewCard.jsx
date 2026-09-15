@@ -1,5 +1,5 @@
-function ReviewCard({ review }) {
-    //converting backend levelid to level name
+function ReviewCard({ review , onEdit, onDelete }) {
+    //converting backend levelId to level name
       const levelNames = {
     1: "Beginner",
     2: "Intermediate",
@@ -15,6 +15,9 @@ function ReviewCard({ review }) {
       <p>Rating: {review.rating}</p>
       <p>{review.comment}</p>
       <p>Date: {review.date}</p>
+      {/* button for edit delete */}
+      <button onClick={() => onEdit(review)}>Edit</button>
+      <button onClick={() => onDelete(review.id)}>Delete</button>
     </div>
   );
 }
