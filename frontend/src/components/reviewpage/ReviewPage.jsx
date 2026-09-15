@@ -38,16 +38,24 @@ function ReviewPage() {
  const [reviews, setReviews] = useState([]);
  const [showModal, setShowModal] = useState(false);
  const [editingReview, setEditingReview] = useState(null);
-
+//Getting review from backend
  useEffect(() => {
     fetch("http://localhost:8080/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error("Error fetching reviews:", err));
   }, []);
-  
-  function handleSaveReview(savedReview) {
-    setReviews([...reviews, savedReview]);
+  //Posting review to backend
+  function handleSaveReview(newReview) {
+  fetch("http://localhost:8080/reviews", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newReview)
+    })
+      .then((res) => res.json())
+      .then((savedReview) => {
+        setReviews([...reviews, savedReview]); 
+      });
   }
 
   return (
