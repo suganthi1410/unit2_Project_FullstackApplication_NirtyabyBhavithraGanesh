@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ReviewList from "./ReviewList";
 import Modal from "../modal/Modal";
 import ReviewForm from "./ReviewForm";
@@ -10,29 +10,40 @@ function ReviewPage({ loggedInUser }) {
  const [showModal, setShowModal] = useState(false);
  const [editingReview, setEditingReview] = useState(null);
 
+ //fixing post/patch rendring double time
+ const isSubmitting = useRef(false);
+
+
 //Getting review from backend
  useEffect(() => {
-    fetch("http://localhost:8080/reviews")
-      .then((res) => res.json())
-      .then((data) => {
+  let ignore = false; 
+   async function loadReviews() {
+      if (!ignore) { 
+      const res = await fetch("http://localhost:8080/reviews");
+      const data = await res.json();
         if (loggedInUser) {        
         setReviews(data.filter(r => r.username === loggedInUser));
       } else {        
         setReviews(data);
       }
-    })
-      .catch((err) => console.error("Error fetching reviews:", err));
-  }, []);
+    }
+  }
+  loadReviews();
 
-  
+    return () => {
+      ignore = true;      
+    };
+  }, [loggedInUser]);  
   function handleSaveReview(newReview) {
+    if (isSubmitting.current) return;   
+    isSubmitting.current = true;
     // If updating or editing PATCH
 
     if (editingReview) {
       fetch(`http://localhost:8080/reviews/update/${editingReview.id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newReview)   // ⭐ includes levelId
+        body: JSON.stringify(newReview)   
       })
         .then((res) => res.json())
         .then((updatedReview) => {
