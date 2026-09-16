@@ -1,7 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
-function LoginPage({ onLogin }){
+function LoginPage({ loggedInUser , onLogin }){
+  if (loggedInUser) {
+    return (
+      <div>
+        <h2>You are already logged in</h2>
+      </div>
+    );
+    }
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -22,7 +29,8 @@ function LoginPage({ onLogin }){
       console.log("Axios response:", response);
 
       if (response.status === 200) {
-        onLogin(username);   // send username to App.jsx
+        onLogin(username);   
+        window.location.href = "/"; //renders to home page after login
       }
     } catch (err) {
         console.log("Axios error:", err);
