@@ -1,6 +1,6 @@
 import { useState , useEffect } from "react";
 
-function ReviewForm({ onClose, onSave, editingReview }) {
+function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [levelName, setLevelName] = useState("");
@@ -32,8 +32,10 @@ function ReviewForm({ onClose, onSave, editingReview }) {
       setLevelName(editingReview.level?.name || "");
       setRating(editingReview.rating);
       setComment(editingReview.comment);
+    } else if (loggedInUser) {
+    setUsername(loggedInUser); 
     }
-  }, [editingReview]);     
+  }, [editingReview , loggedInUser]);     
 
     function handleSubmit(e) {
     e.preventDefault();
@@ -64,15 +66,7 @@ function ReviewForm({ onClose, onSave, editingReview }) {
     <div className="success-message">
       {successMsg}
     </div>
-  )} 
-      {/* Input field for UserName */}
-      <label>UserName</label>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      /> 
+    )}     
       {/* for Name */}
     <label htmlFor="name">Name</label>
         <input
@@ -81,7 +75,7 @@ function ReviewForm({ onClose, onSave, editingReview }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
-/>          
+      />          
       
       {/* Level Dropdown */}   
       <label>Level</label>

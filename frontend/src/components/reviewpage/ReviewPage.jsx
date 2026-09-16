@@ -50,6 +50,7 @@ function ReviewPage({ loggedInUser }) {
           setReviews(
             reviews.map((r) => (r.id === updatedReview.id ? updatedReview : r))
           );
+          isSubmitting.current = false;
         });
     } else {
 
@@ -63,6 +64,7 @@ function ReviewPage({ loggedInUser }) {
       .then((res) => res.json())
       .then((savedReview) => {
         setReviews([...reviews, savedReview]); 
+        isSubmitting.current = false;
       });
   }
   }
@@ -99,6 +101,7 @@ function ReviewPage({ loggedInUser }) {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <ReviewForm
+          loggedInUser={loggedInUser}
           editingReview={editingReview}
           onClose={() => setShowModal(false)}
           onSave={handleSaveReview} 

@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.jpeg';
 //function created for header that displays Logo,
 //page title and links to other pages 
 
-function Header({ onOpenLogin, onNavigate, loggedInUser }) {
+function Header({ loggedInUser , onLogout }) {
     return (
         <header className="header">
             <div className="logo-title">
@@ -13,21 +13,21 @@ function Header({ onOpenLogin, onNavigate, loggedInUser }) {
             </div>
 
             <nav className="header-nav" >
-                <Link to="/"  onClick={onNavigate}>Home</Link>
-                <Link to="/about"  onClick={onNavigate}>About</Link>
-                <Link to="/class"  onClick={onNavigate}>Class</Link>
-                <Link to="/gallery"  onClick={onNavigate}>Gallery</Link>
-                <Link to="/contact"  onClick={onNavigate}>Contact</Link>
-                <Link to="/review"  onClick={onNavigate}>Reviews</Link>
+                <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
+                <Link to="/class"  >Class</Link>
+                <Link to="/gallery" >Gallery</Link>
+                <Link to="/contact"  >Contact</Link>
+                <Link to="/review"  >Reviews</Link>
                  {!loggedInUser && (
-                <button className="login-btn" onClick={onOpenLogin}>
-                        Login
-                    </button>
+                <Link to="/login" className="login-btn">
+                Login
+                </Link>
                 )}
                 {loggedInUser && (
                     <>
                         <span className="welcome">Welcome, {loggedInUser}</span>
-                        <button className="logout-btn" onClick={() => window.location.reload()}>
+                        <button className="logout-btn" onClick={onLogout}>
                             Logout
                         </button>
                     </>
