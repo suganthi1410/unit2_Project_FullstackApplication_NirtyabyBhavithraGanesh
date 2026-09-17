@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import ReviewList from "./ReviewList";
 import Modal from "../modal/Modal";
 import ReviewForm from "./ReviewForm";
+import "./ReviewPage.css"
 
 
 function ReviewPage({ loggedInUser }) {  

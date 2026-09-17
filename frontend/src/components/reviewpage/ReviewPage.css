@@ -1,0 +1,21 @@
+/*Review Page*/
+.review-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: Georgia, serif;
+  color: white;
+}
+
+.review-title {
+  text-align: center;
+  color: rgb(241, 181, 30);
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+
+.review-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
