@@ -61,7 +61,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
 }
   return (
     <form className="review-form" onSubmit={handleSubmit}>
-      <h3>{editingReview ? "Edit Review" : "Add Review"}</h3> 
+      <h3 className= "review-title">{editingReview ? "Edit Review" : "Add Review"}</h3> 
        {successMsg && (
     <div className="success-message">
       {successMsg}
@@ -70,6 +70,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
       {/* for Name */}
     <label htmlFor="name">Name</label>
         <input
+        className="review-input"
         id="name"
         type="text"
         value={name}
@@ -80,6 +81,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
       {/* Level Dropdown */}   
       <label>Level</label>
       <select
+      className="review-input"
         value={levelName}
         onChange={(e) => setLevelName(e.target.value)}
         required
@@ -92,6 +94,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
     {/* Input field for Ratu=ing */}
     <label>Rating</label>
       <select
+      className="review-input"
         value={rating}
         onChange={(e) => setRating(Number(e.target.value))}   // ⭐ convert to number
         required
@@ -106,6 +109,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
       {/*Input field for comment*/}
       <label>Comment</label>
       <textarea
+      className="review-textarea"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         required
@@ -114,7 +118,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
       <input type="hidden" value={date} />
       
       {/* Submit button */}
-      <button type="submit">
+      <button type="submit" className="submit-btn">
         {editingReview ? "Update Review" : "Submit Review"}
       </button>
     </form>
