@@ -9,8 +9,7 @@ function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
   };
   return (
     <div className="review-card" >
-      <h3 className="card-title">{review.name}</h3>
-      <p className="card-username">({review.username})</p>
+      <h3 className="card-title">{review.name}</h3>      
       <p className="card-level">
         Level: {levelNames[review.levelId] || "Not specified"}
       </p>
