@@ -110,7 +110,7 @@ function ReviewPage({ loggedInUser }) {
           />
         </Modal>
       )}
-      <div>className="review-layout"
+      <div className="review-layout" >
       <ReviewList
     reviews={reviews}
     loggedInUser={loggedInUser}

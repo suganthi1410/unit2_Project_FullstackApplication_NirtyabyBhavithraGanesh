@@ -2,7 +2,7 @@ import ReviewCard from "./ReviewCard";
 
 function ReviewList({ reviews , loggedInUser ,onEdit, onDelete}) {   
   return (
-    <div className="review-list">
+    <div className="review-layout">
       {reviews.map((review) => (
         <ReviewCard 
         key={review.id}
