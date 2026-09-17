@@ -1,11 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import "./ReviewPage.css";
+import "./LoginPage.css";
 
 function LoginPage({ loggedInUser , onLogin }){
   if (loggedInUser) {
     return (
-      <div className = "login-page">
+      <div className = "login-form">
         <div className = "login-card">
         <h2>You are already logged in</h2>
       </div>
@@ -46,8 +46,8 @@ function LoginPage({ loggedInUser , onLogin }){
       <div className = "login-card">
         <h2 className = "login-title">Login</h2>
         {error && <p className = "login-error" style={{ color: "red" }}>{error}</p>}
-        <form onSubmit={handleSubmit}>
-        <label className="login-form">Username</label>
+        <form onSubmit={handleSubmit} className="login-form">
+        <label>Username</label>
         <input 
         type="text" 
         value={username}
