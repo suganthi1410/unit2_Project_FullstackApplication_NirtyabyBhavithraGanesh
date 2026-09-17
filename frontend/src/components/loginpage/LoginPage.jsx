@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import "./ReviewPage.css";
 
 function LoginPage({ loggedInUser , onLogin }){
   if (loggedInUser) {
     return (
-      <div>
+      <div className = "login-page">
+        <div className = "login-card">
         <h2>You are already logged in</h2>
+      </div>
       </div>
     );
     }
@@ -39,11 +42,12 @@ function LoginPage({ loggedInUser , onLogin }){
   }
    
     return(
-    <div>
-        <h2>Login</h2>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className = "login-page">
+      <div className = "login-card">
+        <h2 className = "login-title">Login</h2>
+        {error && <p className = "login-error" style={{ color: "red" }}>{error}</p>}
         <form onSubmit={handleSubmit}>
-        <label>Username</label>
+        <label className="login-form">Username</label>
         <input 
         type="text" 
         value={username}
@@ -55,8 +59,9 @@ function LoginPage({ loggedInUser , onLogin }){
         value={password}
          onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button className="login-button" type="submit">Login</button>
       </form>
+    </div>
     </div>
     );
 }
