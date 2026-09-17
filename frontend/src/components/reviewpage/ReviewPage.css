@@ -66,3 +66,22 @@
     font-size: 12px;
     color:  rgba(255, 255, 255, 0.212)
 }
+
+/*write a review button*/
+.review-submit-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background: rgb(241, 181, 30);
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.review-submit-btn:hover {
+  background: rgb(255, 200, 60);
+  transform: scale(1.05);
+}
