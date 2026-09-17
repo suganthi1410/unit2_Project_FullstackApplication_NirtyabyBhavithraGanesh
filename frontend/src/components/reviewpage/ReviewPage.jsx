@@ -80,10 +80,11 @@ function ReviewPage({ loggedInUser }) {
   }
 
   return (
-    <main>
-      <h2>Student Reviews</h2>
+    <main className="review-page">
+      <h2 className="review-title">Student Reviews</h2>
       {loggedInUser && (      
       <button
+      className="review-submit-btn"
         onClick={() => {
           setEditingReview(null);   
           setShowModal(true);       
@@ -108,6 +109,7 @@ function ReviewPage({ loggedInUser }) {
           />
         </Modal>
       )}
+      <div>className="review-layout"
       <ReviewList
     reviews={reviews}
     loggedInUser={loggedInUser}
@@ -117,6 +119,7 @@ function ReviewPage({ loggedInUser }) {
     }}
     onDelete={handleDeleteReview}
     />
+</div>
     </main>
   );
 }
