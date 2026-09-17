@@ -15,10 +15,10 @@
 }
 
 .review-layout {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  justify-content: center;
+  justify-items: center;
 }
 
 /*Review card */
@@ -28,8 +28,23 @@
   padding: 20px;
   border-left: 1px solid rgb(241, 181, 30);
   border-radius: 10px;
+  animation: slideIn 0.6s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.review-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 .card-title {
   color: rgb(241, 181, 30);
   font-size: 20px;
