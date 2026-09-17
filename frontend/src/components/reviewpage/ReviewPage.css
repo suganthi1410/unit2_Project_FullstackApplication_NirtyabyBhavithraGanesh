@@ -85,99 +85,150 @@
   background: rgb(255, 200, 60);
   transform: scale(1.05);
 }
-/* form */
+
+/* Review Form */
 .review-form {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   padding: 25px;
-  border-left: 2px solid rgb(241, 181, 30);
   border-radius: 10px;
-  width: 380px;
-  color: white;
-  font-family: Georgia, serif;
-  animation: fadeIn 0.4s ease-out;
+  border-left: 1px solid rgb(241, 181, 30);
 }
 
-/* Title-Add Review and Edit Review */
-.review-title {
-  text-align: center;
+/* Title */
+.reviewform-title {
   color: rgb(241, 181, 30);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 22px;
-  letter-spacing: 1px;
 }
 
-/* Success message */
-.success-message {
-  background: rgba(0, 255, 0, 0.2);
-  padding: 8px;
-  border-radius: 6px;
-  text-align: center;
-  margin-bottom: 10px;
-  color: lightgreen;
-  font-size: 14px;
+/* Name + Level + Rating row */
+.review-fields-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
 }
 
-/* Input fields and dropdowns */
+/* Each field */
+.review-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.review-field label,
+.review-comment label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-size: 18px;
+  color: rgb(241, 181, 30);
+}
+
+/* Inputs and dropdowns */
 .review-input {
-  width: 80%;
-  padding: 6px 8px;
-  background: rgb(0, 0, 0);
-  border: 1px solid rgba(241, 181, 30, 0.4);
-  border-radius: 5px;
-  color: rgb(215, 206, 206);
-  font-size: 14px;
-  outline: none;
-  margin-bottom: 10px;
-  transition: 0.3s ease;
-}
-
-/* Focus effect */
-.review-input:focus,
-.review-textarea:focus {
-  border-color: rgb(241, 181, 30);
-  box-shadow: 0 0 8px rgba(241, 181, 30, 0.5);
-}
-
-/* Textarea */
-.review-textarea {
-  width: 80%;
-  height: 90px;
+  width: 100%;
+  height: 30px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(241, 181, 30, 0.4);
   border-radius: 6px;
+  border: 1px solid rgb(241, 181, 30);
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  font-size: 15px;
-  resize: none;
-  margin-bottom: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+/* Input Dropdown small */
+.review-form select {
+    width: 180px;
+    height: 32px;
+    padding: 5px 8px;
+    font-size: 14px;
+}
+/* Dropdown options */
+.review-input option {
+  background: #222;
+  color: white;
 }
 
-/* Submit button */
-.submit-btn {
-  padding: 10px;
-  background-color: rgb(241, 181, 30);
-  color: black;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease;
+/* Focus */
+.review-input:focus {
+  outline: none;
+  border-color: rgb(243, 144, 5);
+  box-shadow: 0 0 5px rgba(241, 181, 30, 0.4);
+}
+
+/* Comment - second row */
+.review-comment {
   width: 100%;
 }
 
-.submit-btn:hover {
-  background-color: rgb(255, 200, 60);
-  transform: scale(1.05);
+/* Comment textarea */
+.review-textarea {
+  width: 75%;
+  height: 120px;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid rgb(241, 181, 30);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  resize: none;
+  box-sizing: border-box;
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+.review-textarea:focus {
+  outline: none;
+  border-color: rgb(243, 144, 5);
+  box-shadow: 0 0 5px rgba(241, 181, 30, 0.4);
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 20px;
+  width: 40%;
+  padding: 12px;
+  background: rgb(241, 181, 30);
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: rgb(243, 144, 5);
+}
+
+/* Success Message */
+.success-message {
+  color: #e6eee6;
+  background: rgba(58, 239, 58, 0.541);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .review-fields-row {
+    flex-direction: column;
+    gap: 0;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .review-field {
+    width: 100%;
+  }
+
+  .review-input,
+  .review-textarea {
+    width: 100%;
+  }
+
+  .submit-btn {
+    width: 50%;
   }
 }
+
