@@ -44,6 +44,9 @@ body {
   text-decoration: none;
   font-size: 18px;
 }
+.header-nav .login-btn {
+  color: black !important;
+}
 
 .header-nav a:hover {
   color: gold;
@@ -302,4 +305,57 @@ a {
   .footer-title {
     font-size: 18px;
   }
+}
+/*Login-header */
+
+.login-btn {
+  padding: 8px 18px;
+  color: black;
+  background: rgb(241, 181, 30);
+  border-right: 2px solid white;
+  border-bottom: 2px solid white ;
+  border-radius: 6px;  
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  background: rgb(232, 150, 20);   
+  box-shadow: 0 6px 12px rgba(225, 167, 20, 0.35);
+}
+
+/* logout-header */
+.logout-btn {
+  padding: 8px 18px;
+  color:black;
+  background: rgb(247, 90, 38);     
+  border-right: 2px solid white;
+  border-bottom: 2px solid white ;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s ease;
+   
+}
+.logout-btn:hover {
+  transform: translateY(-3px);
+  background:rgb(247, 90, 38);   
+  box-shadow: 0 6px 12px rgba(225, 167, 20, 0.35);
+}
+
+.header-nav .login-btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px;
+  color: black !important;
+}
+.header-nav .logout-btn {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px;
+  color: black !important;
 }

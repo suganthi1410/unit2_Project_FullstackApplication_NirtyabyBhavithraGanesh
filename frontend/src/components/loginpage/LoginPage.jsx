@@ -19,9 +19,13 @@ function LoginPage({ loggedInUser , onLogin }){
     //error handling for empty username password
     async function handleSubmit(e) {
     e.preventDefault();
-
+    //If username or password missing
     if (!username || !password) {
       setError("Username and password are required")
+      setTimeout(() => {
+      setError("");
+      window.location.reload();
+    }, 2000);
       return;    
     }
     try {
@@ -38,6 +42,11 @@ function LoginPage({ loggedInUser , onLogin }){
     } catch (err) {
         console.log("Axios error:", err);
       setError("Invalid username or password");
+   setTimeout(() => {
+      setError("");
+      window.location.reload();
+    }, 2000);
+      
     }
   }
    
