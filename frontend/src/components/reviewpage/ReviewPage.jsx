@@ -12,6 +12,7 @@ function ReviewPage({ loggedInUser }) {
  const [editingReview, setEditingReview] = useState(null);
 
  //fixing post/patch rendring double time
+ const formRef = useRef(null);
  const isSubmitting = useRef(false);
 
 
@@ -35,6 +36,17 @@ function ReviewPage({ loggedInUser }) {
       ignore = true;      
     };
   }, [loggedInUser]);  
+  // Scroll to review form when modal opens
+useEffect(() => {
+  if (showModal) {
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }, 100);
+  }
+}, [showModal]);
   function handleSaveReview(newReview) {
     if (isSubmitting.current) return;   
     isSubmitting.current = true;
@@ -101,6 +113,7 @@ function ReviewPage({ loggedInUser }) {
 )}
      
       {showModal && (
+        <div ref={formRef}>
         <Modal onClose={() => setShowModal(false)}>
           <ReviewForm
           loggedInUser={loggedInUser}
@@ -109,6 +122,7 @@ function ReviewPage({ loggedInUser }) {
           onSave={handleSaveReview} 
           />
         </Modal>
+        </div>
       )}
       <div className="review-layout" >
       <ReviewList

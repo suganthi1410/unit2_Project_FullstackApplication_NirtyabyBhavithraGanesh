@@ -1,3 +1,4 @@
+import "./ReviewPage.css";
 function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
     const isOwner = review.username === loggedInUser;
 
@@ -20,8 +21,8 @@ function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
       {isOwner && (
         <div className="actions">
       {/* button for edit delete */}
-      <button className="submit-btn" onClick={() => onEdit(review)}>Edit</button>
-      <button className="submit-btn" onClick={() => onDelete(review.id)}>Delete</button>
+      <button className="button" onClick={() => onEdit(review)}>Edit</button>
+      <button className="button" onClick={() => onDelete(review.id)}>Delete</button>
       </div >
       )}
     </div>

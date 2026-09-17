@@ -132,7 +132,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
        
       {/* Submit button */}
       <button type="submit" className="submit-btn">
-        {editingReview ? "Update Review" : "Submit Review"}
+        {editingReview ? "Update" : "Submit"}
       </button>
       
     </form>
