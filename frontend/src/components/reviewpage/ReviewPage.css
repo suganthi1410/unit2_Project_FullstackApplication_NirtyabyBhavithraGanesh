@@ -1,4 +1,4 @@
-/*Review Page*/
+/* Review Page */
 .review-page {
   max-width: 900px;
   margin: 0 auto;
@@ -21,7 +21,7 @@
   justify-items: center;
 }
 
-/*Review card */
+/* Review card */
 .review-card {
   width: 200px;           
   background: rgba(132, 119, 119, 0.082);
@@ -67,7 +67,7 @@
     color:  rgba(255, 255, 255, 0.212)
 }
 
-/*write a review button*/
+/* write a review-button */
 .review-submit-btn {
   display: block;
   margin: 0 auto;
@@ -84,4 +84,100 @@
 .review-submit-btn:hover {
   background: rgb(255, 200, 60);
   transform: scale(1.05);
+}
+/* form */
+.review-form {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 25px;
+  border-left: 2px solid rgb(241, 181, 30);
+  border-radius: 10px;
+  width: 380px;
+  color: white;
+  font-family: Georgia, serif;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Title-Add Review and Edit Review */
+.review-title {
+  text-align: center;
+  color: rgb(241, 181, 30);
+  margin-bottom: 15px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+/* Success message */
+.success-message {
+  background: rgba(0, 255, 0, 0.2);
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: lightgreen;
+  font-size: 14px;
+}
+
+/* Input fields and dropdowns */
+.review-input {
+  width: 80%;
+  padding: 6px 8px;
+  background: rgb(0, 0, 0);
+  border: 1px solid rgba(241, 181, 30, 0.4);
+  border-radius: 5px;
+  color: rgb(215, 206, 206);
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+}
+
+/* Focus effect */
+.review-input:focus,
+.review-textarea:focus {
+  border-color: rgb(241, 181, 30);
+  box-shadow: 0 0 8px rgba(241, 181, 30, 0.5);
+}
+
+/* Textarea */
+.review-textarea {
+  width: 80%;
+  height: 90px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(241, 181, 30, 0.4);
+  border-radius: 6px;
+  color: white;
+  font-size: 15px;
+  resize: none;
+  margin-bottom: 12px;
+}
+
+/* Submit button */
+.submit-btn {
+  padding: 10px;
+  background-color: rgb(241, 181, 30);
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  background-color: rgb(255, 200, 60);
+  transform: scale(1.05);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
