@@ -9,7 +9,7 @@ import mudraleft from "../../assets/images/mudraleft.jpeg";
 //shows timings link after seeing the levels
 
 function ClassSchedule() {
-  const [StudentType, setStudentType] = useState("");
+  const [studentType, setStudentType] = useState("");
 
   return (
     <div className="class-level-page">
@@ -30,10 +30,10 @@ function ClassSchedule() {
         </button>
       </div>
       <div className="levels-display">
-        {StudentType === "Kids" && <KidsLevels />}
-        {StudentType === "Adults" && <AdultsLevels />}
+        {studentType === "Kids" && <KidsLevels />}
+        {studentType === "Adults" && <AdultsLevels />}
       </div>
-      {StudentType && (
+      {studentType && (
         <div className="link-to-timing">
           <h3>
             <Link to="/schedule/timings">View Class Timings</Link>

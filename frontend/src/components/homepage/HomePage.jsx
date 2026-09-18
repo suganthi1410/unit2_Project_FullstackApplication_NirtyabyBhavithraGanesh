@@ -40,7 +40,7 @@ function HomePage() {
             <ReusableButton label="View Class Details" />
           </Link>
           <Link to="/contact">
-            <ReusableButton label="View contact page" />
+            <ReusableButton label="View Contact page" />
           </Link>
         </div>
       </section>
