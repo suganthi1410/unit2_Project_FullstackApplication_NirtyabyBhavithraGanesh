@@ -89,5 +89,46 @@
   0% { opacity: 1; }
   70% { opacity: 1; }
   100% { opacity: 0 }
-
   }
+  /* Mobile */
+  @media (max-width: 600px) {
+  .login-page {
+    padding: 20px 10px;
+  }
+
+  .login-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .login-title {
+    font-size: 22px;
+  }
+
+  .login-form input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .login-button {
+    padding: 7px 18px;
+    font-size: 15px;
+  }
+}
+/* Tab */
+@media (min-width: 600px) and (max-width: 900px) {
+  .login-card {
+    width: 400px;
+    padding: 28px;
+  }
+
+  .login-title {
+    font-size: 24px;
+  }
+}
+/* Desktop */
+@media (min-width: 900px) {
+  .login-card {
+    width: 350px;
+  }
+}
