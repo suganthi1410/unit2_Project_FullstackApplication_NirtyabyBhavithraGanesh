@@ -2,6 +2,10 @@ body {
   background-color: rgba(0, 0, 0, 0.918);
   color: white;
 }
+body, * {
+  cursor: default;
+  user-select: none;
+}
 
 /*Header css */
 .header {

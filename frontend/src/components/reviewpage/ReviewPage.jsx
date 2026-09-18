@@ -134,7 +134,7 @@ useEffect(() => {
         </div>
       )}
       
-  <h3>Your Reviews</h3>
+  
   <ReviewList
     reviews={userReviews}
     loggedInUser={loggedInUser}
@@ -163,3 +163,5 @@ useEffect(() => {
 }
 
 export default ReviewPage;
+
+
