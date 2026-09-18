@@ -32,15 +32,14 @@ function LoginPage({ loggedInUser , onLogin }){
       const response = await axios.post("http://localhost:8080/login", {
         username,
         password
-      });
-      console.log("Axios response:", response);
+      });     
 
       if (response.status === 200) {
         onLogin(username);   
         window.location.href = "/"; //renders to home page after login
       }
     } catch (err) {
-        console.log("Axios error:", err);
+       
       setError("Invalid username or password");
    setTimeout(() => {
       setError("");
@@ -74,4 +73,12 @@ function LoginPage({ loggedInUser , onLogin }){
     </div>
     );
 }
-export default LoginPage;
+export default LoginPage; 
+
+
+
+
+
+
+
+

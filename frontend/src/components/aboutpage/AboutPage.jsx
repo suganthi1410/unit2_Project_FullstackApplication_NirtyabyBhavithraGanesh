@@ -5,7 +5,7 @@ import ReusableButton from "../ReusableButton";
 import "./AboutPage.css";
 
 //Displays About page with about the school,about teacher
-//and shows the buttons to class and contact 
+//and shows the buttons to class and contact
 
 function AboutPage() {
   return (

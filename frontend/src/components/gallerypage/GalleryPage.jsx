@@ -28,7 +28,7 @@ function GalleryPage() {
         <Link to="/contact">
           <ReusableButton label="View Contact page" />
         </Link>
-      </div>      
+      </div>
     </main>
   );
 }

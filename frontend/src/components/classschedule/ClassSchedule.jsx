@@ -5,7 +5,7 @@ import AdultsLevels from "../classschedule/AdultLevels";
 import "../classschedule/classpagecss/ClassLevel.css";
 import mudraleft from "../../assets/images/mudraleft.jpeg";
 
-//Allows user to select the type of student and displays levels(Kids/Adults) and 
+//Allows user to select the type of student and displays levels(Kids/Adults) and
 //shows timings link after seeing the levels
 
 function ClassSchedule() {
