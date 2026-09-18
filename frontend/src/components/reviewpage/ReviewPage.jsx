@@ -8,13 +8,21 @@ import "./ReviewPage.css"
 function ReviewPage({ loggedInUser }) {  
   
  const [reviews, setReviews] = useState([]);
- const [showModal, setShowModal] = useState(false);
+  useEffect(() => {
+    fetch("http://localhost:8080/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
+  /* sorting review so user can see their reviews first */
+const userReviews = reviews.filter(r => r.username === loggedInUser);
+const otherReviews = reviews.filter(r => r.username !== loggedInUser);
+ const [showModal, setShowModal] = useState(false); 
  const [editingReview, setEditingReview] = useState(null);
 
  //fixing post/patch rendring double time
  const formRef = useRef(null);
  const isSubmitting = useRef(false);
-
+/*
 
 //Getting review from backend
  useEffect(() => {
@@ -35,7 +43,8 @@ function ReviewPage({ loggedInUser }) {
     return () => {
       ignore = true;      
     };
-  }, [loggedInUser]);  
+  }, [loggedInUser]); 
+  */ 
   // Scroll to review form when modal opens
 useEffect(() => {
   if (showModal) {
@@ -124,17 +133,31 @@ useEffect(() => {
         </Modal>
         </div>
       )}
-      <div className="review-layout" >
-      <ReviewList
-    reviews={reviews}
+      
+  <h3>Your Reviews</h3>
+  <ReviewList
+    reviews={userReviews}
     loggedInUser={loggedInUser}
     onEdit={(review) => {
-    setEditingReview(review);
-    setShowModal(true);
+      setEditingReview(review);
+      setShowModal(true);
     }}
     onDelete={handleDeleteReview}
-    />
-</div>
+  />
+
+
+<hr />
+
+<h3>All Reviews</h3>
+<ReviewList
+  reviews={otherReviews}
+  loggedInUser={loggedInUser}
+  onEdit={(review) => {
+    setEditingReview(review);
+    setShowModal(true);
+  }}
+  onDelete={handleDeleteReview}
+/>
     </main>
   );
 }

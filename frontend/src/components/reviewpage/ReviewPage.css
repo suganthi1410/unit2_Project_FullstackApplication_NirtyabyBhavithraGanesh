@@ -242,7 +242,7 @@
  display: inline-block; 
  width: fit-content;
   max-width: 300px; color: #e6eee6;
-  background: rgba(58, 239, 58, 0.541); 
+  background: rgba(58, 239, 58, 0.76); 
   padding: 8px 12px; border-radius: 6px; 
   margin: 10px auto; 
   font-size: 13px; 
@@ -264,3 +264,5 @@
     width: 100%;
   }
 }
+
+
