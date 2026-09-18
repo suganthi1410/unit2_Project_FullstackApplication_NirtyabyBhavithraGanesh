@@ -1,0 +1,325 @@
+/* Review Page */
+.review-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: Georgia, serif;
+  color: white;
+}
+
+.review-title {
+  text-align: center;
+  color: rgb(241, 181, 30);
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+
+.review-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Review card */
+.review-card {
+  width: 200px;           
+  background: rgba(132, 119, 119, 0.082);
+  padding: 12px 15px;
+  margin-top:15px;
+  border-left: 1px solid rgb(241, 181, 30);
+  border-radius: 10px;
+  animation: slideIn 0.6s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.review-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.card-title {
+  color: rgb(241, 181, 30);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card-username,
+.card-level,
+.card-rating,
+.card-comment
+ {
+  font-size: 13px;
+  margin: 6px 0;
+  color: white;
+}
+.card-date
+{
+    font-size: 12px;
+    color:  rgba(255, 255, 255, 0.212)
+}
+.actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 10px;
+}
+.actions .button {
+    width: auto;    
+    flex: 0 0 auto;
+    min-width: auto;
+    padding: 4px 8px;
+    margin: 0;
+    font-size: 12px;
+    line-height: normal;
+    display: inline-block;
+    flex: 0 0 auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+/* Edit button */
+.actions .button:first-child {
+    background-color: #0c0c0c;
+    border: 1px solid rgb(241, 181, 30);
+}
+
+.actions .button:first-child:hover {
+    background-color: #17c523;
+}
+
+/* Delete button */
+.actions .button:last-child {
+    background-color: #070707;
+    border: 1px solid rgb(241, 181, 30);
+}
+
+.actions .button:last-child:hover {
+    background-color: #c62828;
+}
+/* write a review-button */
+.review-submit-btn {
+  display: block;
+  margin: 0 auto; 
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background: rgb(241, 181, 30);
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.review-submit-btn:hover {
+  background: rgb(255, 200, 60);
+  transform: scale(1.05);
+}
+
+/* Review Form */
+.review-form {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 1px solid rgb(241, 181, 30);
+  gap: 20px;
+}
+
+/* Title */
+.reviewform-title {
+  color: rgb(241, 181, 30);
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* Name + Level + Rating row */
+.review-fields-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Each field */
+.review-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Labels */
+.review-field label,
+.review-comment label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-size: 18px;
+  color: rgb(241, 181, 30);
+}
+
+/* Inputs and dropdowns */
+.review-input {
+  width: 100%;
+  height: 32px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid rgb(241, 181, 30);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Dropdown options */
+.review-input option {
+  background: #222;
+  color: white;
+}
+
+/* Focus */
+.review-input:focus {
+  outline: none;
+  border-color: rgb(243, 144, 5);
+  box-shadow: 0 0 5px rgba(241, 181, 30, 0.4);
+}
+
+/* Comment - second row */
+.review-comment {
+  width: 100%;
+}
+
+/* Comment textarea */
+.review-textarea {
+  width: 60%;
+  height: 70px;
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid rgb(241, 181, 30);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.review-textarea:focus {
+  outline: none;
+  border-color: rgb(243, 144, 5);
+  box-shadow: 0 0 5px rgba(241, 181, 30, 0.4);
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 20px;
+  width: 10%;
+  padding:5px 5px;
+  background: rgb(241, 181, 30);
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.submit-btn:hover {
+  background: rgb(209, 123, 4);
+}
+
+
+/* Success Message */
+.success-message { 
+ display: inline-block; 
+ width: fit-content;
+  max-width: 300px; color: #e6eee6;
+  background: rgba(58, 239, 58, 0.76); 
+  padding: 8px 12px; border-radius: 6px; 
+  margin: 10px auto; 
+  font-size: 13px; 
+  font-weight: 600; }
+
+/* Mobile */
+@media (max-width: 700px) {
+  .review-fields-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .review-field {
+    width: 100%;
+  }
+
+  .review-input,
+  .review-textarea {
+    width: 100%;
+  }
+}
+/* Mobile (0–600px) */
+@media (max-width: 600px) {
+  .review-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .review-card {
+    width: 90%;
+  }
+
+  .review-page {
+    padding: 15px;
+  }
+
+  .review-title {
+    font-size: 20px;
+  }
+    .submit-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+}
+
+/*Tablet (600–900px) */
+  
+@media (min-width: 600px) and (max-width: 900px) {
+  .review-layout {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .review-card {
+    width: 85%;
+  }
+
+  .review-title {
+    font-size: 22px;
+  }
+   .submit-btn {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .review-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .submit-btn {
+    width: 10%;
+  }
+}
+
+

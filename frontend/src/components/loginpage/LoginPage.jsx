@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
+import "./LoginPage.css";
 
 function LoginPage({ loggedInUser , onLogin }){
   if (loggedInUser) {
     return (
-      <div>
+      <div className = "login-form">
+        <div className = "login-card">
         <h2>You are already logged in</h2>
+      </div>
       </div>
     );
     }
@@ -16,9 +19,13 @@ function LoginPage({ loggedInUser , onLogin }){
     //error handling for empty username password
     async function handleSubmit(e) {
     e.preventDefault();
-
+    //If username or password missing
     if (!username || !password) {
       setError("Username and password are required")
+      setTimeout(() => {
+      setError("");
+      window.location.reload();
+    }, 2000);
       return;    
     }
     try {
@@ -35,14 +42,20 @@ function LoginPage({ loggedInUser , onLogin }){
     } catch (err) {
         console.log("Axios error:", err);
       setError("Invalid username or password");
+   setTimeout(() => {
+      setError("");
+      window.location.reload();
+    }, 2000);
+      
     }
   }
    
     return(
-    <div>
-        <h2>Login</h2>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <form onSubmit={handleSubmit}>
+    <div className = "login-page">
+      <div className = "login-card">
+        <h2 className = "login-title">Login</h2>
+        {error && <p className = "login-error" style={{ color: "red" }}>{error}</p>}
+        <form onSubmit={handleSubmit} className="login-form">
         <label>Username</label>
         <input 
         type="text" 
@@ -55,8 +68,9 @@ function LoginPage({ loggedInUser , onLogin }){
         value={password}
          onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button className="login-button" type="submit">Login</button>
       </form>
+    </div>
     </div>
     );
 }

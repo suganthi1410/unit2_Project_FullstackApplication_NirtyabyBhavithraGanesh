@@ -2,17 +2,27 @@ import { useEffect, useState, useRef } from "react";
 import ReviewList from "./ReviewList";
 import Modal from "../modal/Modal";
 import ReviewForm from "./ReviewForm";
+import "./ReviewPage.css"
 
 
 function ReviewPage({ loggedInUser }) {  
   
  const [reviews, setReviews] = useState([]);
- const [showModal, setShowModal] = useState(false);
+  useEffect(() => {
+    fetch("http://localhost:8080/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
+  /* sorting review so user can see their reviews first */
+const userReviews = reviews.filter(r => r.username === loggedInUser);
+const otherReviews = reviews.filter(r => r.username !== loggedInUser);
+ const [showModal, setShowModal] = useState(false); 
  const [editingReview, setEditingReview] = useState(null);
 
  //fixing post/patch rendring double time
+ const formRef = useRef(null);
  const isSubmitting = useRef(false);
-
+/*
 
 //Getting review from backend
  useEffect(() => {
@@ -33,7 +43,19 @@ function ReviewPage({ loggedInUser }) {
     return () => {
       ignore = true;      
     };
-  }, [loggedInUser]);  
+  }, [loggedInUser]); 
+  */ 
+  // Scroll to review form when modal opens
+useEffect(() => {
+  if (showModal) {
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }, 100);
+  }
+}, [showModal]);
   function handleSaveReview(newReview) {
     if (isSubmitting.current) return;   
     isSubmitting.current = true;
@@ -80,10 +102,11 @@ function ReviewPage({ loggedInUser }) {
   }
 
   return (
-    <main>
-      <h2>Student Reviews</h2>
+    <main className="review-page">
+      <h2 className="review-title">Student Reviews</h2>
       {loggedInUser && (      
       <button
+      className="review-submit-btn"
         onClick={() => {
           setEditingReview(null);   
           setShowModal(true);       
@@ -99,6 +122,7 @@ function ReviewPage({ loggedInUser }) {
 )}
      
       {showModal && (
+        <div ref={formRef}>
         <Modal onClose={() => setShowModal(false)}>
           <ReviewForm
           loggedInUser={loggedInUser}
@@ -107,18 +131,37 @@ function ReviewPage({ loggedInUser }) {
           onSave={handleSaveReview} 
           />
         </Modal>
+        </div>
       )}
-      <ReviewList
-    reviews={reviews}
+      
+  
+  <ReviewList
+    reviews={userReviews}
     loggedInUser={loggedInUser}
     onEdit={(review) => {
-    setEditingReview(review);
-    setShowModal(true);
+      setEditingReview(review);
+      setShowModal(true);
     }}
     onDelete={handleDeleteReview}
-    />
+  />
+
+
+<hr />
+
+<h3>All Reviews</h3>
+<ReviewList
+  reviews={otherReviews}
+  loggedInUser={loggedInUser}
+  onEdit={(review) => {
+    setEditingReview(review);
+    setShowModal(true);
+  }}
+  onDelete={handleDeleteReview}
+/>
     </main>
   );
 }
 
 export default ReviewPage;
+
+

@@ -2,6 +2,10 @@ body {
   background-color: rgba(0, 0, 0, 0.918);
   color: white;
 }
+body, * {
+  cursor: default;
+  user-select: none;
+}
 
 /*Header css */
 .header {
@@ -34,7 +38,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   margin-top: 10px;
   margin-right: 25px;
 }
@@ -43,6 +47,9 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+}
+.header-nav .login-btn {
+  color: black !important;
 }
 
 .header-nav a:hover {
@@ -301,5 +308,142 @@ a {
 
   .footer-title {
     font-size: 18px;
+  }
+}
+/*Login-header */
+
+.login-btn {
+  padding: 8px 18px;
+  color: black;
+  background: rgb(241, 181, 30);
+  border-right: 2px solid white;
+  border-bottom: 2px solid white ;
+  border-radius: 6px;  
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  background: rgb(232, 150, 20);   
+  box-shadow: 0 6px 12px rgba(225, 167, 20, 0.35);
+}
+
+/* logout-header */
+.logout-btn {
+  padding: 8px 18px;
+  color:black;
+  background: rgb(247, 90, 38);     
+  border-right: 2px solid white;
+  border-bottom: 2px solid white ;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s ease;
+   
+}
+.logout-btn:hover {
+  transform: translateY(-3px);
+  background:rgb(247, 90, 38);   
+  box-shadow: 0 6px 12px rgba(225, 167, 20, 0.35);
+}
+
+.header-nav .login-btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px;
+  color: black !important;
+}
+.header-nav .logout-btn {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px;
+  color: black !important;
+}
+.hamburger {
+  display: none;
+}
+@media (max-width: 700px) {
+
+  .header-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 85px; 
+    right: 15px;
+    background: rgba(0, 0, 0, 0.85); 
+    border: 1px solid rgb(241, 181, 30);
+    padding: 12px 15px;
+    gap: 10px;
+    width: 160px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-nav a,
+  .header-nav .login-btn,
+  .header-nav .logout-btn {
+    font-size: 14px;
+    padding: 6px 0;
+    color: rgb(241, 181, 30);
+    text-decoration: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 32px;
+    color: rgb(241, 181, 30);
+    cursor: pointer;
+  }
+
+  .logo-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media (min-width: 701px) {
+
+  .header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .header-nav a {
+    color: rgb(241, 181, 30);
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    padding-right: 15px;
+  }
+
+  /* Vertical line */
+  .header-nav a:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 18px;
+    width: 1px;
+    background-color: rgb(241, 181, 30);
+  }
+  .header-nav a:hover {
+    color: white;
+  }
+
+  .hamburger {
+    display: none;
   }
 }

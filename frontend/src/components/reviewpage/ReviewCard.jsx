@@ -1,3 +1,6 @@
+import StarRating from "./StarRating";
+import "./ReviewPage.css";
+
 function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
     const isOwner = review.username === loggedInUser;
 
@@ -8,22 +11,21 @@ function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
     3: "Advanced"
   };
   return (
-    <div className="review-card">
-      <h3>{review.name}</h3>
-      <p className="username">({review.username})</p>
-      <p className="level">
+    <div className="review-card" >
+      <h3 className="card-title">{review.name}</h3>      
+      <p className="card-level">
         Level: {levelNames[review.levelId] || "Not specified"}
       </p>
-      <p>Rating: {review.rating}</p>
-      <p>{review.comment}</p>
-      <p>Date: {review.date}</p>
+      <StarRating rating={review.rating} />
+      <p className="card-comment">{review.comment}</p>
+      <p className="card-date">Date: {review.date}</p>
 
       {isOwner && (
-        <>
+        <div className="actions">
       {/* button for edit delete */}
-      <button onClick={() => onEdit(review)}>Edit</button>
-      <button onClick={() => onDelete(review.id)}>Delete</button>
-      </>
+      <button className="button" onClick={() => onEdit(review)}>Edit</button>
+      <button className="button" onClick={() => onDelete(review.id)}>Delete</button>
+      </div >
       )}
     </div>
   );
