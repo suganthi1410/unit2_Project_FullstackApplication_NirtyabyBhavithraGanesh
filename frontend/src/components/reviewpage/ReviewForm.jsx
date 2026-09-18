@@ -56,7 +56,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
     setTimeout(() => {
       setSuccessMsg("");
       onClose();   
-    }, 3000);            
+    }, 2000);            
 }
   return (
     <form className="review-form" onSubmit={handleSubmit}>
@@ -96,6 +96,7 @@ function ReviewForm({ loggedInUser, onClose, onSave, editingReview }) {
         <option value="Advanced">Advanced</option>
       </select>   
       </div>
+
     {/* Input field for Rating */}
      <div className="review-field">
     <label>Rating</label>   

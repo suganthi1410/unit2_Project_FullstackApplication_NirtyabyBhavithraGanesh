@@ -6,7 +6,7 @@ import TableforAllTimings from "./TableForAllTimings.jsx";
 import "./classpagecss/ClassTimings.css";
 import mudraright from "../../assets/images/mudraright.jpeg";
 
-// Displays class timing selection,shows the filtered results, and full 
+// Displays class timing selection,shows the filtered results, and full
 //timings table with toggle option. Also back to class button is there
 
 function ClassTimings() {

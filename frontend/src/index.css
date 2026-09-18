@@ -2,7 +2,8 @@ body {
   background-color: rgba(0, 0, 0, 0.918);
   color: white;
 }
-body, * {
+body,
+* {
   cursor: default;
   user-select: none;
 }
@@ -129,16 +130,15 @@ a {
   padding: 15x 5px;
   text-align: center;
 }
-.footer-center >  {
-  margin: 10px 0;  
-  max-width: 900px; 
+.footer-center > {
+  margin: 10px 0;
+  max-width: 900px;
 }
-
 
 /* Devotion animation */
 .footer-quote {
   font-size: 20px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
   font-style: italic;
   background-image: linear-gradient(
     90deg,
@@ -175,7 +175,7 @@ a {
   color: white;
   font-size: 22px;
   position: relative;
-  padding-right: 15px;   
+  padding-right: 15px;
 }
 
 /* Vertical line */
@@ -195,13 +195,13 @@ a {
 }
 
 /* Image animation */
-.footer-image img{
+.footer-image img {
   width: 180px;
   border-radius: 10px;
   margin: 5px auto;
-  animation: 
-  footerImgFade 1.2s ease-out forwards,
-  footerFloat 4s ease-in-out infinite;
+  animation:
+    footerImgFade 1.2s ease-out forwards,
+    footerFloat 4s ease-in-out infinite;
 }
 @keyframes footerImgFade {
   from {
@@ -226,8 +226,6 @@ a {
   }
 }
 
-
-
 /* Responsive */
 @media (max-width: 600px) {
   .footer-nav {
@@ -244,7 +242,6 @@ a {
   }
 }
 
-
 /*Login-header */
 
 .login-btn {
@@ -252,8 +249,8 @@ a {
   color: black;
   background: rgb(241, 181, 30);
   border-right: 2px solid white;
-  border-bottom: 2px solid white ;
-  border-radius: 6px;  
+  border-bottom: 2px solid white;
+  border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.25s ease;
@@ -261,26 +258,25 @@ a {
 
 .login-btn:hover {
   transform: translateY(-3px);
-  background: rgb(232, 150, 20);   
+  background: rgb(232, 150, 20);
   box-shadow: 0 6px 12px rgba(225, 167, 20, 0.35);
 }
 
 /* logout-header */
 .logout-btn {
   padding: 8px 18px;
-  color:black;
-  background: rgb(247, 90, 38);     
+  color: black;
+  background: rgb(247, 90, 38);
   border-right: 2px solid white;
-  border-bottom: 2px solid white ;
+  border-bottom: 2px solid white;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.25s ease;
-   
 }
 .logout-btn:hover {
   transform: translateY(-3px);
-  background:rgb(247, 90, 38);   
+  background: rgb(247, 90, 38);
   box-shadow: 0 6px 12px rgba(225, 167, 20, 0.35);
 }
 
@@ -302,20 +298,19 @@ a {
   display: none;
 }
 @media (max-width: 700px) {
-
   .header-nav {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 85px; 
+    top: 85px;
     right: 15px;
-    background: rgba(0, 0, 0, 0.85); 
+    background: rgba(0, 0, 0, 0.85);
     border: 1px solid rgb(241, 181, 30);
     padding: 12px 15px;
     gap: 10px;
-    width: 160px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    width: 160px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     z-index: 999;
   }
 
@@ -348,7 +343,6 @@ a {
 }
 
 @media (min-width: 701px) {
-
   .header-nav {
     display: flex;
     gap: 20px;

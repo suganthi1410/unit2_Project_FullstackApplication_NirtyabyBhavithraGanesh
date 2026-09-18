@@ -1,15 +1,15 @@
 import ReviewCard from "./ReviewCard";
 
-function ReviewList({ reviews , loggedInUser ,onEdit, onDelete}) {   
+function ReviewList({ reviews, loggedInUser, onEdit, onDelete }) {
   return (
     <div className="review-layout">
       {reviews.map((review) => (
-        <ReviewCard 
-        key={review.id}
-        review={review}
-        loggedInUser={loggedInUser}
-        onEdit={onEdit}
-        onDelete={onDelete}
+        <ReviewCard
+          key={review.id}
+          review={review}
+          loggedInUser={loggedInUser}
+          onEdit={onEdit}
+          onDelete={onDelete}
         />
       ))}
     </div>
@@ -17,7 +17,3 @@ function ReviewList({ reviews , loggedInUser ,onEdit, onDelete}) {
 }
 
 export default ReviewList;
-
-
-
-
