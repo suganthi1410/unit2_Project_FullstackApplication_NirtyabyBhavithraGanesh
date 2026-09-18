@@ -22,29 +22,6 @@ const otherReviews = reviews.filter(r => r.username !== loggedInUser);
  //fixing post/patch rendring double time
  const formRef = useRef(null);
  const isSubmitting = useRef(false);
-/*
-
-//Getting review from backend
- useEffect(() => {
-  let ignore = false; 
-   async function loadReviews() {
-      if (!ignore) { 
-      const res = await fetch("http://localhost:8080/reviews");
-      const data = await res.json();
-        if (loggedInUser) {        
-        setReviews(data.filter(r => r.username === loggedInUser));
-      } else {        
-        setReviews(data);
-      }
-    }
-  }
-  loadReviews();
-
-    return () => {
-      ignore = true;      
-    };
-  }, [loggedInUser]); 
-  */ 
   // Scroll to review form when modal opens
 useEffect(() => {
   if (showModal) {
