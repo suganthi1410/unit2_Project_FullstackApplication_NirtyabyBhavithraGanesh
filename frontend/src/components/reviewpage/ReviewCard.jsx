@@ -1,4 +1,6 @@
+import StarRating from "./StarRating";
 import "./ReviewPage.css";
+
 function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
     const isOwner = review.username === loggedInUser;
 
@@ -14,7 +16,7 @@ function ReviewCard({ review , loggedInUser ,onEdit, onDelete }) {
       <p className="card-level">
         Level: {levelNames[review.levelId] || "Not specified"}
       </p>
-      <p className="card-rating">Rating: {review.rating}</p>
+      <StarRating rating={review.rating} />
       <p className="card-comment">{review.comment}</p>
       <p className="card-date">Date: {review.date}</p>
 
