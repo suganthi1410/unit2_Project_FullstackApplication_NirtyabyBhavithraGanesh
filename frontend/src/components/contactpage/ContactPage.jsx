@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ContactForm from "./ContactForm.jsx";
 import "./ContactPage.css";
 
@@ -10,15 +9,15 @@ function ContactPage() {
       <h3 className="title">Get in touch</h3>
       <div className="contact-layout">
         <section className="teacher-info-leftsection">
-          <h4>Contact details</h4>
+          <h4>Contact Details</h4>
           <p>
-            <strong>Name:</strong> Guru Name
+            <strong> Bhavithra Ganesh</strong>
           </p>
           <p>
-            <strong>Phone: 987-654-321</strong>
+            <strong>{"\u{1F4DE}"}987-654-321</strong>
           </p>
           <p>
-            <strong>Email:</strong> nirtyadance@gmail.com
+            <strong>{"\u2709"} nirtyadance@gmail.com</strong>
           </p>
           <div className="map-container">
             <iframe

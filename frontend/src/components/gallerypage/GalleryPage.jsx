@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import galleryData from "./GalleryData.js";
 import ReusableButton from "../ReusableButton.jsx";
-import Reviews from "./Reviews.jsx";
 import "./GalleryPage.css";
 
 //Displays the gallery page with images, navigation buttons, and the Reviews section.
@@ -27,10 +26,9 @@ function GalleryPage() {
         </Link>
 
         <Link to="/contact">
-          <ReusableButton label="View contact page" />
+          <ReusableButton label="View Contact page" />
         </Link>
-      </div>
-      <Reviews />
+      </div>      
     </main>
   );
 }

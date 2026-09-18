@@ -8,32 +8,24 @@ function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="footer">
-      <div className="footer-left">
-        <p className="footer-title">QUICK LINKS</p>
+      <div className="footer-center">  
+        <p className="footer-quote"> "Dance.Devotion.Discipline" </p>    
         <nav className="footer-nav">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/class">Class</Link>
           <Link to="/gallery">Gallery</Link>
           <Link to="/contact">Contact</Link>
-          <p className="footer-quote"> "Dance.Devotion.Discipline" </p>
+          <Link to="/review">Reviews</Link>          
         </nav>
-        <div className="youtube-link">
-          <a
-            href="https://www.youtube.com/@bharathanatyam9772/featured"
-            target="_blank"
-          >
-            {" "}
-            Youtube
-          </a>
-        </div>
+        <div className="footer-image">
+        <img src={footerimage} alt="Natarajar BW" />
+      </div>
         <p className="copyright">
           &copy; {year} Nirtya by Bhavithra Ganesh. All rights reserved.
         </p>
       </div>
-      <div className="footer-right">
-        <img src={footerimage} alt="Natarajar BW" />
-      </div>
+      
     </footer>
   );
 }

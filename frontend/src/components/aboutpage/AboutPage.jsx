@@ -67,7 +67,7 @@ function AboutPage() {
           </Link>
 
           <Link to="/contact">
-            <ReusableButton label="View contact page" />
+            <ReusableButton label="View Contact page" />
           </Link>
         </div>
       </div>
